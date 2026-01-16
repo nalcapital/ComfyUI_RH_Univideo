@@ -98,7 +98,19 @@ ComfyUI/
 
 ## 🚀 Usage
 
-### Basic Workflow
+### Example Workflow
+
+We provide an example workflow in the `workflows/` folder:
+
+📁 **[workflows/univideo_example_workflow.json](workflows/univideo_example_workflow.json)**
+
+This workflow includes two examples:
+- **Face Swap (i+v2v_edit)**: Replace a person's face in video using a reference image
+- **Style Transfer (v2v_edit)**: Transform video style with text instructions
+
+To use: Drag and drop the JSON file into ComfyUI, or use `Load` → `Load Workflow`.
+
+### Basic Steps
 
 1. Add `RunningHub Univideo Loader` node to load the pipeline
 2. Add `RunningHub Univideo Editor` node

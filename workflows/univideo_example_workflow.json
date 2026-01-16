@@ -1,0 +1,118 @@
+{
+  "1": {
+    "inputs": {},
+    "class_type": "RunningHub Univideo Loader",
+    "_meta": {
+      "title": "RunningHub Univideo Loader"
+    }
+  },
+  "2": {
+    "inputs": {
+      "prompt": "Use the person's face in the reference image to replace the person's face in the video.",
+      "width": 832,
+      "height": 480,
+      "num_frames": 49,
+      "sample_steps": 20,
+      "fps": 24,
+      "seed": 129127950453518,
+      "pipeline": [
+        "1",
+        0
+      ],
+      "ref_video": [
+        "3",
+        0
+      ],
+      "ref_image": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "RunningHub Univideo Editor",
+    "_meta": {
+      "title": "RunningHub Univideo Editor (i+v2v_edit: Face Swap)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "file": "your_video.mp4",
+      "choose video file to upload": "Video"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Load Video (for Face Swap)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "image": "your_reference_face.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Reference Image (Face)"
+    }
+  },
+  "5": {
+    "inputs": {
+      "filename_prefix": "video/univideo_faceswap",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video (Face Swap Result)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "prompt": "Change the man to look like he is sculpted from chocolate.",
+      "width": 832,
+      "height": 480,
+      "num_frames": 81,
+      "sample_steps": 20,
+      "fps": 24,
+      "seed": 409128357797715,
+      "pipeline": [
+        "1",
+        0
+      ],
+      "ref_video": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "RunningHub Univideo Editor",
+    "_meta": {
+      "title": "RunningHub Univideo Editor (v2v_edit: Style Transfer)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "filename_prefix": "video/univideo_style",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video (Style Transfer Result)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "file": "your_video_for_style.mp4",
+      "choose video file to upload": "Video"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Load Video (for Style Transfer)"
+    }
+  }
+}
