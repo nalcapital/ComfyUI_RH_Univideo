@@ -90,8 +90,6 @@ class MLLMInContext(PreTrainedModel):
         super().__init__(config)
         self._gradient_checkpointing = config._gradient_checkpointing
         self.config = config
-        # kiki
-        config.mllm_id = '/workspace/ComfyUI/models/Qwen/Qwen_Qwen2.5-VL-7B-Instruct'
         if "Qwen2.5-VL" in config.mllm_id:
             self.mllm_type = "qwenvl"
         else:

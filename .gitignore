@@ -1,0 +1,65 @@
+# ==================== Sensitive Files ====================
+# Configuration files (may contain passwords, API keys, etc.)
+config.json
+*.config.local
+.env
+.env.local
+*.pem
+*.key
+rh_config.json
+
+# Internal scripts
+sync.sh
+deploy.sh
+internal/
+
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# ==================== IDE ====================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ==================== OS ====================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==================== Logs and Temp Files ====================
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+
+# ==================== Models and Large Files ====================
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+models/
+weights/
+ckpts/
+
+# ==================== Demo and Output Files ====================
+demo/
+output/
+outputs/
+*.mp4
+*.avi
+*.mov
