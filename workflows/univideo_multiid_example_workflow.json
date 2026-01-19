@@ -1,0 +1,84 @@
+{
+  "1": {
+    "inputs": {
+      "prompt": "A girl, now dressed in a bikini, sits comfortably on a beach lounge chair. On her right shoulder, a fluffy, yellow Pikachu with a small detective hat perches, looking alertly at the camera. The girl holds an ice cream cone piled high with vanilla ice cream and colorful sprinkles, taking a bite with a relaxed, happy expression. Her smile is gentle and content, reflecting the ease of the moment. The camera slowly circles around them, capturing the leisurely scene from various perspectives.",
+      "width": 832,
+      "height": 480,
+      "num_frames": 81,
+      "sample_steps": 20,
+      "fps": 24,
+      "seed": 294289365731103,
+      "pipeline": [
+        "2",
+        0
+      ],
+      "ref_image1": [
+        "3",
+        0
+      ],
+      "ref_image2": [
+        "4",
+        0
+      ],
+      "ref_image3": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "RunningHub Univideo Generator(MultiID)",
+    "_meta": {
+      "title": "RunningHub Univideo Generator(MultiID)"
+    }
+  },
+  "2": {
+    "inputs": {},
+    "class_type": "RunningHub Univideo Loader",
+    "_meta": {
+      "title": "RunningHub Univideo Loader"
+    }
+  },
+  "3": {
+    "inputs": {
+      "image": "1ea72e92469e447a116d25fcf38f7be47feb5e5733f020999593d1640bb8d78f.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "4": {
+    "inputs": {
+      "image": "2776ea6caeaa1d48d2840f63bf7ac903359f72ccf680aaf7a2e93243aab7d35c.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "5": {
+    "inputs": {
+      "image": "3c5fa3401b6342d00adf3ef80737bd06aaf74cb6d587e4da693be3b8da1ba047.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "filename_prefix": "video/ComfyUI",
+      "format": "auto",
+      "codec": "auto",
+      "fw_video_preview": "",
+      "video-preview": "",
+      "video": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Save Video"
+    }
+  }
+}
