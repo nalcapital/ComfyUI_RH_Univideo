@@ -1,6 +1,8 @@
 import comfy.utils
 
 import os
+import io
+import tempfile
 import torch
 import numpy as np
 import yaml
@@ -173,12 +175,95 @@ class RunningHub_Univideo_Editor:
         img = Image.fromarray(np.clip(i, 0, 255).astype(np.uint8))
         return img
 
+    def get_video_path(self, video_input):
+        """Extract video file path from VIDEO input, handling various input types.
+        
+        If the video is stored as BytesIO (e.g., loaded from URL), it will be saved
+        to a temporary file and the path to that file will be returned.
+        """
+        if video_input is None:
+            raise ValueError("Video input is None")
+        
+        # If it's already a string path, return it
+        if isinstance(video_input, str):
+            return video_input
+        
+        # If it's a Path object, convert to string
+        if isinstance(video_input, Path):
+            return str(video_input)
+        
+        # If it's a BytesIO object, save to temp file
+        if isinstance(video_input, io.BytesIO):
+            return self._save_bytesio_to_temp_file(video_input)
+        
+        # For VideoFromFile objects, use get_stream_source() method
+        # This returns either a string path or a BytesIO object
+        if hasattr(video_input, 'get_stream_source'):
+            source = video_input.get_stream_source()
+            print(f"[Univideo] get_stream_source() returned type: {type(source)}")
+            
+            # If it's a string path, return it directly
+            if isinstance(source, str):
+                print(f"[Univideo] Using video path: {source}")
+                return source
+            
+            # If it's a Path object, convert to string
+            if isinstance(source, Path):
+                return str(source)
+            
+            # If it's a BytesIO object, save to temp file
+            if isinstance(source, io.BytesIO):
+                print(f"[Univideo] Video is in memory (BytesIO), saving to temp file...")
+                return self._save_bytesio_to_temp_file(source)
+        
+        # Try to access the private __file attribute directly (name mangled)
+        # VideoFromFile stores the file as self.__file which becomes _VideoFromFile__file
+        private_attr = '_VideoFromFile__file'
+        if hasattr(video_input, private_attr):
+            file_obj = getattr(video_input, private_attr)
+            if isinstance(file_obj, str):
+                return file_obj
+            if isinstance(file_obj, Path):
+                return str(file_obj)
+            if isinstance(file_obj, io.BytesIO):
+                return self._save_bytesio_to_temp_file(file_obj)
+        
+        # Fallback: try other common attributes
+        for attr_name in ['path', 'file_path', 'filename', 'source', '_path', '_file_path']:
+            if hasattr(video_input, attr_name):
+                path = getattr(video_input, attr_name)
+                if isinstance(path, str) and path:
+                    return path
+                if isinstance(path, Path):
+                    return str(path)
+        
+        raise ValueError(f"Cannot extract video path from input type: {type(video_input)}, value: {video_input}")
+    
+    def _save_bytesio_to_temp_file(self, bytesio_obj):
+        """Save BytesIO video data to a temporary file and return the path."""
+        # Create temp file with .mp4 extension (most common video format)
+        temp_dir = folder_paths.get_temp_directory()
+        temp_filename = f"univideo_input_{uuid.uuid4()}.mp4"
+        temp_path = os.path.join(temp_dir, temp_filename)
+        
+        # Ensure BytesIO is at the beginning
+        bytesio_obj.seek(0)
+        
+        # Write to temp file
+        with open(temp_path, 'wb') as f:
+            f.write(bytesio_obj.read())
+        
+        print(f"[Univideo] Saved video to temp file: {temp_path}")
+        return temp_path
+
     def sample(self, **kwargs):
         
         negative_prompt="Bright tones, overexposed, oversharpening, static, blurred details, subtitles, style, works, paintings, images, static, overall gray, worst quality, low quality, JPEG compression residue, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, misshapen limbs, fused fingers, still picture, messy background, three legs, walking backwards, computer-generated environment, weak dynamics, distorted and erratic motions, unstable framing and a disorganized composition."
 
         pipeline = kwargs.get('pipeline')
-        cond_video_path = kwargs.get('ref_video').get_stream_source()
+        ref_video = kwargs.get('ref_video')
+        cond_video_path = self.get_video_path(ref_video)
+        print(f"[Univideo] Video path resolved: {cond_video_path} (type: {type(cond_video_path)})")
         width = kwargs.get('width')
         height = kwargs.get('height')
         num_frames = kwargs.get('num_frames')

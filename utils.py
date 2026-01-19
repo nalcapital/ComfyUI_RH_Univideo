@@ -103,6 +103,10 @@ def read_and_preprocess_cond_video(
       video: [torch.FloatTensor] of shape (F, 3, H', W') in [-1, 1]  #TODO: fix this
       meta: dict with fps, original_resolution, resized_resolution, used_num_frames
     """
+    # Ensure video_path is a string
+    if not isinstance(video_path, str):
+        video_path = str(video_path)
+    
     spatial_unit_size = vae_spatial_scale_factor * spatial_patch_size  # default 16
     temporal_unit_size = vae_temporal_scale_factor * temporal_patch_size  # default 4
     max_area = height * width  # variable aspect ratio mode uses area, not fixed H/W
